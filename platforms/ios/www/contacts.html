@@ -1,0 +1,40 @@
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Testing share</h1>
+            <div>
+                <button onclick="alertContact()">Get Contact</button>
+                <div id='contacts'>
+                    <br>
+                    Share with: 
+                    </br>
+                </div>
+            </div>
+            <a href='notification.html'>Next</a>
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="plugins/com.badrit.ContactPicker/www/ContactPicker.js"></script>
+        <script>
+        var t;
+        function alertContact() {
+            window.plugins.ContactPicker.chooseContact(function(contactInfo) {
+                t=contactInfo;
+                $('#contacts').append(contactInfo.displayName+'<br>');
+            });
+        }
+        </script>
+
+    </body>
+</html>
